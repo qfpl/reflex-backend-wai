@@ -5,9 +5,11 @@ mkDerivation {
   pname = "reflex-server-wai";
   version = "0.1.0.0";
   src = ./.;
-  libraryHaskellDepends = [
-    base bytestring http-types mtl reflex reflex-basic-host stm wai
-    warp
+  isLibrary = true;
+  isExecutable = true;
+  libraryHaskellDepends = [ base mtl reflex stm wai ];
+  executableHaskellDepends = [
+    base bytestring http-types reflex reflex-basic-host stm wai warp
   ];
   license = stdenv.lib.licenses.bsd3;
 }

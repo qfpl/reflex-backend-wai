@@ -14,11 +14,17 @@ cabal-version:       >=1.10
 
 library
   exposed-modules:     Reflex.Server.Wai
-                     , Reflex.Server.Wai.Scratch
-  -- other-modules:       
-  -- other-extensions:    
   build-depends:       base >=4.9 && <4.10
                      , mtl
+                     , stm
+                     , wai
+                     , reflex
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+
+executable example
+  main-is:             Main.hs
+  build-depends:       base >=4.9 && <4.10
                      , stm
                      , wai
                      , reflex
@@ -26,5 +32,7 @@ library
                      , http-types
                      , bytestring
                      , warp
-  hs-source-dirs:      src
+                     , reflex-server-wai
+  hs-source-dirs:      exe
   default-language:    Haskell2010
+  

@@ -6,7 +6,9 @@ Stability   : experimental
 Portability : non-portable
 -}
 {-# LANGUAGE OverloadedStrings #-}
-module Reflex.Server.Wai.Scratch where
+module Main (
+    main
+  ) where
 
 import Control.Monad.STM
 
@@ -23,18 +25,13 @@ import Reflex.Server.Wai
 
 guest :: WaiSource -> IO ()
 guest ws = basicHost $ waiApplicationGuest ws $ \eReq -> do
-
   let
     eRes = responseLBS status200 [] "Hi" <$ eReq
-
   pure eRes
 
-go :: IO ()
-go = do
+main :: IO ()
+main = do
   waiSource <- atomically newWaiSource
-
   guest waiSource
-
   run 8080 $ waiApplicationHost waiSource
-
   pure ()
