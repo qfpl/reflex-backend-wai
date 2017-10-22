@@ -1,0 +1,30 @@
+name:                reflex-server-wai
+version:             0.1.0.0
+-- synopsis:            
+-- description:         
+license:             BSD3
+license-file:        LICENSE
+author:              Dave Laing
+maintainer:          dave.laing.80@gmail.com
+-- copyright:           
+-- category:            
+build-type:          Simple
+extra-source-files:  ChangeLog.md
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     Reflex.Server.Wai
+                     , Reflex.Server.Wai.Scratch
+  -- other-modules:       
+  -- other-extensions:    
+  build-depends:       base >=4.9 && <4.10
+                     , mtl
+                     , stm
+                     , wai
+                     , reflex
+                     , reflex-basic-host
+                     , http-types
+                     , bytestring
+                     , warp
+  hs-source-dirs:      src
+  default-language:    Haskell2010
