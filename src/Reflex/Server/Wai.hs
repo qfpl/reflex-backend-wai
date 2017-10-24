@@ -55,6 +55,17 @@ waiApplicationGuest (WaiSource wReq wRes) network = do
 
   pure ()
 
+pumpWaiApplication ::
+  Application ->
+  Request ->
+  IO Response
+pumpWaiApplication app req = do
+  v <- atomically newEmptyTMVar
+  _ <- app req $ \res -> do
+    atomically . putTMVar v $ res
+    pure ResponseReceived
+  atomically $ takeTMVar v
+
 liftWaiApplication ::
   ( Reflex t
   , PerformEvent t m
