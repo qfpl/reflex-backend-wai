@@ -12,8 +12,6 @@ let
   haskellPackages = reflex-platform.ghc.override {
     overrides = self: super: {
       reflex-basic-host = self.callPackage sources.reflex-basic-host {};
-      ghc = super.ghc // { withPackages = super.ghc.withHoogle; };
-      ghcWithPackages = self.ghc.withPackages;
     };
   };
 

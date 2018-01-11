@@ -14,24 +14,24 @@ cabal-version:       >=1.10
 
 library
   exposed-modules:     Reflex.Server.Wai
-  build-depends:       base >=4.9 && <4.10
-                     , mtl
-                     , stm
-                     , wai
-                     , reflex
+  build-depends:       base   >=4.9 && <4.10
+                     , mtl    >= 2.2.1 && < 2.3
+                     , reflex >= 0.5 && < 0.6
+                     , stm    >= 2.4.4 && < 2.5
+                     , wai    >= 3.2.1 && < 3.3
   hs-source-dirs:      src
   default-language:    Haskell2010
 
 executable example
   main-is:             Main.hs
   build-depends:       base >=4.9 && <4.10
-                     , stm
-                     , wai
-                     , reflex
-                     , reflex-basic-host
-                     , http-types
-                     , bytestring
-                     , warp
+                     , bytestring        >= 0.10.8 && < 0.11
+                     , http-types        >= 0.9.1 && < 0.10
+                     , reflex            >= 0.5 && < 0.6
+                     , reflex-basic-host >= 0.1.0 && < 0.2
+                     , stm               >= 2.4.4 && < 2.5
+                     , wai               >= 3.2.1 && < 3.3
+                     , warp              >= 3.2.13 && < 3.3
                      , reflex-server-wai
   hs-source-dirs:      exe
   default-language:    Haskell2010
