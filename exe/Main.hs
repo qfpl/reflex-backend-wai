@@ -20,11 +20,11 @@ import Network.HTTP.Types.Status
 import qualified Data.ByteString.Lazy as LBS
 
 import Reflex hiding (Request, Response)
-import Reflex.Basic.Host
+import Reflex.Host.Basic
 import Reflex.Server.Wai
 
 guest :: WaiSource -> IO ()
-guest ws = basicHost $ waiApplicationGuest ws $ \eReq -> do
+guest ws = basicHostForever $ waiApplicationGuest ws $ \eReq -> do
   let
     eRes = responseLBS status200 [] "Hi" <$ eReq
   pure eRes

@@ -20,6 +20,7 @@ library
                      , stm    >= 2.4.4 && < 2.5
                      , wai    >= 3.2.1 && < 3.3
   hs-source-dirs:      src
+  ghc-options:         -Wall
   default-language:    Haskell2010
 
 executable example
@@ -34,5 +35,6 @@ executable example
                      , warp              >= 3.2.13 && < 3.3
                      , reflex-server-wai
   hs-source-dirs:      exe
+  ghc-options:         -Wall
   default-language:    Haskell2010
   
