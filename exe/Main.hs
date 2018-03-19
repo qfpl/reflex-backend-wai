@@ -17,9 +17,6 @@ import Network.Wai.Handler.Warp (run)
 
 import Network.HTTP.Types.Status
 
-import qualified Data.ByteString.Lazy as LBS
-
-import Reflex hiding (Request, Response)
 import Reflex.Host.Basic
 import Reflex.Server.Wai
 
