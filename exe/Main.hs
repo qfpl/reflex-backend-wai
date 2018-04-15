@@ -10,6 +10,9 @@ module Main (
     main
   ) where
 
+import Control.Monad (void)
+import Control.Concurrent (forkIO)
+
 import Control.Monad.STM
 
 import Network.Wai
@@ -29,6 +32,6 @@ guest ws = basicHostForever $ waiApplicationGuest ws $ \eReq -> do
 main :: IO ()
 main = do
   waiSource <- atomically newWaiSource
-  guest waiSource
+  void . forkIO $ guest waiSource
   run 8080 $ waiApplicationHost waiSource
   pure ()
