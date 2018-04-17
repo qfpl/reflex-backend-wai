@@ -8,6 +8,9 @@ import Control.Monad (void, forever)
 
 import Control.Monad.Trans (MonadIO, liftIO)
 
+import Data.Map (Map)
+import qualified Data.Map as Map
+
 import Control.Concurrent (forkIO)
 import Control.Monad.STM
 import Control.Concurrent.STM
@@ -83,5 +86,25 @@ liftWaiApplication app eReq = do
       onRes res
       pure ResponseReceived
   performEvent_ $ (\req -> void . liftIO $ app req go) <$> eReq
+
+  pure eRes
+
+liftWaiApplicationTagged ::
+  ( Reflex t
+  , PerformEvent t m
+  , MonadIO (Performable m)
+  , TriggerEvent t m
+  ) =>
+  Application ->
+  Event t (tag, Request) ->
+  m (Event t (Map tag Response))
+liftWaiApplicationTagged app eReq = do
+  (eRes, onRes) <- newTriggerEvent
+
+  let
+    go t res = do
+      onRes (Map.singleton t res)
+      pure ResponseReceived
+  performEvent_ $ (\(t, req) -> void . liftIO . app req $ go t) <$> eReq
 
   pure eRes

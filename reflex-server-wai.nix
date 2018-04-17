@@ -1,5 +1,5 @@
-{ mkDerivation, base, bytestring, http-types, mtl, reflex
-, reflex-basic-host, stdenv, stm, wai, warp
+{ mkDerivation, base, bytestring, containers, http-types, mtl
+, reflex, reflex-basic-host, stdenv, stm, wai, warp
 }:
 mkDerivation {
   pname = "reflex-server-wai";
@@ -7,7 +7,7 @@ mkDerivation {
   src = ./.;
   isLibrary = true;
   isExecutable = true;
-  libraryHaskellDepends = [ base mtl reflex stm wai ];
+  libraryHaskellDepends = [ base containers mtl reflex stm wai ];
   executableHaskellDepends = [
     base bytestring http-types reflex reflex-basic-host stm wai warp
   ];
