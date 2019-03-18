@@ -2,7 +2,7 @@
 , reflex, reflex-basic-host, stdenv, stm, wai, warp
 }:
 mkDerivation {
-  pname = "reflex-server-wai";
+  pname = "reflex-backend-wai";
   version = "0.1.0.0";
   src = ./.;
   isLibrary = true;

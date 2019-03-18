@@ -21,7 +21,7 @@ import Network.Wai.Handler.Warp (run)
 import Network.HTTP.Types.Status
 
 import Reflex.Host.Basic
-import Reflex.Server.Wai
+import Reflex.Backend.Wai
 
 guest :: WaiSource -> IO ()
 guest ws = basicHostForever $ waiApplicationGuest ws $ \eReq -> do

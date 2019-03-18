@@ -15,6 +15,6 @@ let
     };
   };
 
-  drv = haskellPackages.callPackage ./reflex-server-wai.nix { };
+  drv = haskellPackages.callPackage ./reflex-backend-wai.nix { };
 in
   drv

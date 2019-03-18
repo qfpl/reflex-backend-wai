@@ -1,5 +1,5 @@
 {-# LANGUAGE FlexibleContexts #-}
-module Reflex.Server.Wai where
+module Reflex.Backend.Wai where
 
 import Network.Wai
 import Network.Wai.Internal (ResponseReceived(..))
