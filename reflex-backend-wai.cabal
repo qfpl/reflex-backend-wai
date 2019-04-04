@@ -1,13 +1,13 @@
 name:                reflex-backend-wai
 version:             0.1.0.0
--- synopsis:            
--- description:         
+synopsis:            Reflex interface to `wai`
+description:         Reflex interface to `wai`.
 license:             BSD3
 license-file:        LICENSE
 author:              Dave Laing
 maintainer:          dave.laing.80@gmail.com
 -- copyright:           
--- category:            
+category:            FRP, Web
 build-type:          Simple
 extra-source-files:  ChangeLog.md
 cabal-version:       >=1.10
