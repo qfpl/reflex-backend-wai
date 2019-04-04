@@ -1,14 +1,12 @@
 {-|
-Copyright   : (c) Dave Laing, 2017
+Copyright   : (c) Dave Laing, 2017-2019
 License     : BSD3
 Maintainer  : dave.laing.80@gmail.com
 Stability   : experimental
 Portability : non-portable
 -}
 {-# LANGUAGE OverloadedStrings #-}
-module Main (
-    main
-  ) where
+module Main (main) where
 
 import Network.Wai (responseLBS)
 import Network.HTTP.Types.Status (status200)
