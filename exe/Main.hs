@@ -10,28 +10,13 @@ module Main (
     main
   ) where
 
-import Control.Monad (void)
-import Control.Concurrent (forkIO)
+import Network.Wai (responseLBS)
+import Network.HTTP.Types.Status (status200)
 
-import Control.Monad.STM
-
-import Network.Wai
-import Network.Wai.Handler.Warp (run)
-
-import Network.HTTP.Types.Status
-
-import Reflex.Host.Basic
-import Reflex.Backend.Wai
-
-guest :: WaiSource -> IO ()
-guest ws = basicHostForever $ waiApplicationGuest ws $ \eReq -> do
-  let
-    eRes = responseLBS status200 [] "Hi" <$ eReq
-  pure eRes
+import Reflex.Backend.Warp (runAppForever)
 
 main :: IO ()
-main = do
-  waiSource <- atomically newWaiSource
-  void . forkIO $ guest waiSource
-  run 8080 $ waiApplicationHost waiSource
-  pure ()
+main =
+  runAppForever 8080 $ \eReq -> do
+    let eRes = responseLBS status200 [] "Hi" <$ eReq
+    pure eRes
