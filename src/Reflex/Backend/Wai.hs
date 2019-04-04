@@ -9,7 +9,7 @@ Low level operations for integrating reflex networks with WAI
 'Application's.
 
 If you just want to serve a reflex network then have a look
-at 'Reflex.Backend.Warp'.
+at "Reflex.Backend.Warp".
 
 -}
 
@@ -65,7 +65,7 @@ waiApplicationHost (WaiSource wReq wRes) req response = do
   res <- atomically $ takeTMVar wRes
   response res
 
--- | Build a reflex network that pumps 'Request's and 'Response' to
+-- | Build a reflex network that pumps 'Request's and 'Response's to
 -- and from the 'WaiSource'
 waiApplicationGuest ::
   ( Reflex t
@@ -111,8 +111,8 @@ liftWaiApplication app eReq = do
 
   pure eRes
 
--- | Similar to 'liftWaiApplication', but the 'Request' event yields
--- a tag, which is attached to the 'Response'.
+-- | Similar to 'liftWaiApplication', but the 'Request' event should yield
+-- a tag which is then attached to the 'Response'.
 liftWaiApplicationTagged ::
   ( Reflex t
   , PerformEvent t m
