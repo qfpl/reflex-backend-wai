@@ -1,7 +1,25 @@
 name:                reflex-backend-wai
 version:             0.1.0.0
 synopsis:            Reflex interface to `wai`
-description:         Reflex interface to `wai`.
+description:
+  Reflex interface to `wai`.
+  .
+  A minimal example:
+  .
+  > {-# LANGUAGE OverloadedStrings #-}
+  > module Main where
+  >  
+  > import Network.Wai (responseLBS)
+  > import Network.HTTP.Types.Status (status200)
+  >  
+  > import Reflex.Backend.Warp (runAppForever)
+  >  
+  > main :: IO ()
+  > main =
+  >   runAppForever 8080 $ \eReq -> do
+  >     let eRes = responseLBS status200 [] "Hi" <$ eReq
+  >     pure eRes
+
 license:             BSD3
 license-file:        LICENSE
 author:              Dave Laing
